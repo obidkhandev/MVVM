@@ -14,7 +14,7 @@ class App extends StatelessWidget {
         ScreenUtil.init(context);
         return MaterialApp(
           onGenerateRoute: AppRoute.generateRoute,
-          initialRoute: RouteName.home,
+          initialRoute: RouteName.splash,
           debugShowCheckedModeBanner: false,
           // home: ,
         );

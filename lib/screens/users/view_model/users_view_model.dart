@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-import '../data/model/user_model.dart';
-import '../data/repository/user_repo.dart';
+import '../../../data/model/user_model.dart';
+import '../../../data/repository/user_repo.dart';
 
 class UserViewModel extends ChangeNotifier {
   final UserRepository userRepository;
@@ -14,15 +14,16 @@ class UserViewModel extends ChangeNotifier {
 
   List<UserModel> allUsers = [];
 
-  getAllUsers() async {
+  Future<void> getAllUsers() async {
     isLoading = true;
     notifyListeners();
     var users = await userRepository.getAllUsers();
     isLoading = false;
     notifyListeners();
-    if (users.data != []) {
+    if (users.data.isNotEmpty) {
       allUsers = users.data;
       notifyListeners();
     }
+
   }
 }
